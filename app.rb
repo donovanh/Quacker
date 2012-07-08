@@ -21,7 +21,7 @@ set :public_folder, 'public'
 set :haml, {:format => :html5} # default Haml format is :xhtml
 
 
-DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/database.db")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/database.db")
 
 class User
   include DataMapper::Resource
