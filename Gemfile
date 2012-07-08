@@ -1,5 +1,5 @@
 source :rubygems
-
+ruby '1.9.2'
 gem 'rake'
 gem 'sinatra', '~> 1.2.3'
 gem 'shotgun', '~> 0.9'
@@ -20,10 +20,9 @@ gem 'compass', '~> 0.11.6'
 # Sass libraries
 gem 'grid-coordinates', '~> 1.1.4'
 
-group :production do
-  gem "pg"
-end
-
 group :development, :test do
-  gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
 end
