@@ -25,10 +25,11 @@
   .success
     %p
       Well done! You've translated a tweet!
-      (
-      %a{:href => "http://twitter.com/#{@current_user.nickname}"}
-        View
-      )
+      - if @current_user
+        (
+        %a{:href => "http://twitter.com/#{@current_user.nickname}"}
+          View
+        )
           
 
 .twitterInfo
