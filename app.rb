@@ -22,6 +22,20 @@ set :haml, {:format => :html5} # default Haml format is :xhtml
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/database.db")
 
+require './settings'
+
+# Twitter app details
+myTwitterAppDetails = {
+  :app_id =>      ENV['TWITTER_ID'] || settings.twitter_id,
+  :app_secret =>  ENV['TWITTER_SECRET'] || settings.twitter_secret
+}
+
+# Microsoft Translate details
+myMicrosoftTranslateAppDetails = {
+  :app_id =>      ENV['MICROSOFT_ID'] || settings.microsoft_translate_id,
+  :app_secret =>  ENV['MICROSOFT_SECRET'] || settings.microsoft_translate_secret
+}
+
 class User
   include DataMapper::Resource
   property :id,               Serial
@@ -36,11 +50,6 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-# Twitter app details
-myTwitterAppDetails = {
-  :app_id =>      'Uiak6rX38o2TmBV9QMVVQ',
-  :app_secret =>  'KJOVZ0fLKwzVrafC4fyUAOXadxMfTONsMAIG2U13U'
-}
 use OmniAuth::Strategies::Twitter, myTwitterAppDetails[:app_id], myTwitterAppDetails[:app_secret]
 
 enable :sessions
@@ -58,14 +67,14 @@ get '/' do
 end
 
 post '/translate' do
-  # Send the text through Microsoft Translate 
-  translator = MicrosoftTranslator::Client.new('18bef6fd-5f7e-4f3e-99fe-e198cf80e294', '7c/bOynmnKLbL976Pa2Du8hJMFqKOr34N8cqaRxtxoM=')
+  # Send the text through Microsoft Translate
+  translator = MicrosoftTranslator::Client.new(myMicrosoftTranslateAppDetails[:app_id], myMicrosoftTranslateAppDetails[:app_secret])
   outputText = translator.translate(
     params[:mytext],
     params[:from],
     params[:to],
   "text/html")
-#  outputText = 'argle barlge doodly doo'
+#  outputText = 'argle bargle doodly doo'
   # Return as JSON object
   content_type :json
   {
@@ -80,6 +89,8 @@ end
 # Send out a tweet to the user's account
 # Change this to a POST when in proper use
 post '/tweet' do
+  current_user
+  puts current_user
   message_to_tweet = params["translatedText"]
   Twitter.configure do |config|
     config.consumer_key = myTwitterAppDetails[:app_id]
@@ -89,8 +100,6 @@ post '/tweet' do
   end
   twittered = Twitter.update(message_to_tweet)
   # TODO: Handle errors: Twitter::Error::Forbidden: Status is a duplicate.
-  #@rate_limit_status = Twitter.rate_limit_status
-  #haml :tweet, :layout => :'layouts/application'
   # Return as JSON object
   content_type :json
   {
