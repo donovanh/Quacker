@@ -10,7 +10,6 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'dm-core'
-gem 'dm-sqlite-adapter'
 gem 'dm-migrations'
 
 # Sass & Compass
@@ -22,6 +21,7 @@ gem 'grid-coordinates', '~> 1.1.4'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'dm-sqlite-adapter'
 end
 group :production do
   gem 'pg'
