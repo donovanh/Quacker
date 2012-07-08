@@ -7,7 +7,6 @@ require 'omniauth'
 require 'omniauth-twitter'
 require 'twitter'
 require 'dm-core'
-require 'dm-sqlite-adapter'
 require 'dm-migrations'
 
 # Helpers
