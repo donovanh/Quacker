@@ -1,0 +1,35 @@
+@import compass/reset
+@import compass/utilities
+@import compass/css3
+
+// Base font
+=font-default
+  font: 120% Helvetica-Neue, Helvetica, sans-serif
+  
+// Links
+a
+  color: #3366CC
+  &:hover
+    color: #3366CC
+    text-decoration: none
+  &:focus,
+  &:active
+    outline: none
+  &:visited
+    // Default style for visited links
+
+body
+  +font-default
+  background: #fff
+  color: #0d0d0d
+  
+#tweet-this
+  border: 1px solid #999
+  @include border-radius(5px)
+  background-color: #aaa
+  color: #fff
+  display: block
+  padding: 10px
+  &:hover
+    color: blue
+    cursor: pointer

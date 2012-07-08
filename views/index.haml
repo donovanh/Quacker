@@ -1,0 +1,57 @@
+%h1 TranslateMeTweet
+
+
+%script#translationTemplate{:type => "text/template"}
+  .output-text
+    %p
+      Output text:
+      %span#translatedText
+        <%= translatedText %>
+      %span#tweet-this.logged-in
+        Tweet this
+
+%script#messageTemplate{:type => "text/template"}
+  %form{:action => '/translate', :method => 'post', :id => 'toTranslate'}
+    %textarea{:name => 'mytext', :id => 'mytext'}
+      <%= mytext %>
+    .from-to
+      %span From:
+      %input{:type => 'radio', :name => 'from', :value => 'en', :checked => ''} English
+      %span To:
+      %input{:type => 'radio', :name => 'to', :value => 'es', :checked => ''} Spanish
+    %input{:type => 'submit', :name => 'translate', :value => 'Translate'}
+    
+%script#successTemplate{:type => "text/template"}
+  .success
+    %p
+      Well done! You've translated a tweet!
+      (
+      %a{:href => "http://twitter.com/#{@current_user.nickname}"}
+        View
+      )
+          
+
+.twitterInfo
+  %p
+    - if @current_user
+      %span.signed-in
+        Signed in as
+        %a{:href => "http://twitter.com/#{@current_user.nickname}"}
+          = @current_user.name
+        (
+        %a{:href => '/logout'}
+          Logout
+        )
+    - else
+      %span.sign-in
+        %a{:href => "/sign_in"}
+          Sign in with Twitter
+
+.maincontent
+  #success-holder
+  #translation-holder
+  #form-holder
+
+
+
+
