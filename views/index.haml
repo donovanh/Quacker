@@ -1,26 +1,57 @@
-%h1 TranslateATweet
-
+.maincontent
+  %header.clearfix
+    %h1 Quack quack!
+    .twitterInfo
+      %p
+        - if @current_user
+          %span.signed-in
+            Signed in as
+            %span.signed-in-as
+              %a{:href => "http://twitter.com/#{@current_user.nickname}"}<
+                = @current_user.name
+            %span.button
+              %a{:href => '/logout'}<
+                Logout
+        - else
+          %span.sign-in
+            %a{:href => "/sign_in"}
+              Sign in with Twitter
+              
+  #success-holder
+  #translation-holder
+  #form-holder
 
 %script#translationTemplate{:type => "text/template"}
   .output-text
     %p
       Output text:
-      %span#translatedText
+      %textarea#translatedText
         <%= translatedText %>
-      %span#tweet-this.logged-in
+      %span.button.logged-in#tweet-this
         Tweet this
 
 %script#messageTemplate{:type => "text/template"}
   %form{:action => '/translate', :method => 'post', :id => 'toTranslate'}
-    %textarea{:name => 'mytext', :id => 'mytext'}
-      <%= mytext %>
+    %textarea{:name => 'mytext', :id => 'mytext', :placeholder => 'type your text here'}
     .from-to
-      %span From:
-      %input{:type => 'radio', :name => 'from', :value => 'en', :checked => ''} English
-      %span To:
-      %input{:type => 'radio', :name => 'to', :value => 'es', :checked => ''} Spanish
-    %input{:type => 'submit', :name => 'translate', :value => 'Translate'}
-    
+      .from
+        %span.label From:
+        %ul
+          %li
+            %input{:type => 'radio', :name => 'from', :value => 'en', :checked => ''} English
+          %span.hidden
+            %li
+              %input{:type => 'radio', :name => 'from', :value => 'es'} Spanish
+      .to
+        %span.label To:
+        %ul
+          %li
+            %input{:type => 'radio', :name => 'to', :value => 'es', :checked => ''} Spanish
+          %span.hidden
+            %li
+              %input{:type => 'radio', :name => 'to', :value => 'en'} English
+    %input{:type => 'submit', :name => 'translate', :value => 'Translate', :class => 'submitters'}
+
 %script#successTemplate{:type => "text/template"}
   .success
     %p
@@ -30,28 +61,6 @@
         %a{:href => "http://twitter.com/#{@current_user.nickname}"}
           View
         )
-      
-
-.twitterInfo
-  %p
-    - if @current_user
-      %span.signed-in
-        Signed in as
-        %a{:href => "http://twitter.com/#{@current_user.nickname}"}
-          = @current_user.name
-        (
-        %a{:href => '/logout'}
-          Logout
-        )
-    - else
-      %span.sign-in
-        %a{:href => "/sign_in"}
-          Sign in with Twitter
-
-.maincontent
-  #success-holder
-  #translation-holder
-  #form-holder
 
 
 

@@ -89,8 +89,7 @@ end
 # Send out a tweet to the user's account
 # Change this to a POST when in proper use
 post '/tweet' do
-  current_user
-  puts current_user
+  #current_user
   message_to_tweet = params["translatedText"]
   Twitter.configure do |config|
     config.consumer_key = myTwitterAppDetails[:app_id]

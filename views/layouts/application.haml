@@ -3,17 +3,18 @@
   %head
     %meta{:'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8"}
     %meta{:name => "lang", :content => "en"}
-    %title TranslateATweet
+    %title Quack quack! A tweet by another kind of bird.
     %link{:href=>'/stylesheets/application.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"}
+    %link{:href=>'/stylesheets/buttons.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"}
+    %link{:href => "http://fonts.googleapis.com/css?family=Yellowtail", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Kotta+One", :rel => "stylesheet", :type => "text/css"}/
+    
     %script{:src => "/javascripts/lib/modernizr-1.6.min.js"}
   %body
     = yield
     = partial :_analytics
     
-    :javascript
-      document.write('<script src=' +
-      ('//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min') +
-      '.js><\/script>')
+    %script{:src => "/javascripts/lib/jquery-1.7.2.min.js"}
     %script{:src => "/javascripts/lib/underscore-min.js"}
     %script{:src => "/javascripts/lib/backbone-min.js"}
     %script{:src => "/javascripts/application.js"}
