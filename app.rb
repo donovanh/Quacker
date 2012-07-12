@@ -87,7 +87,6 @@ post '/translate' do
 end
 
 # Send out a tweet to the user's account
-# Change this to a POST when in proper use
 post '/tweet' do
   #current_user
   message_to_tweet = params["translatedText"]
@@ -137,4 +136,9 @@ end
     session[:user_id] = nil
     redirect '/'
   end
+end
+
+# Dev test page
+get '/duck' do
+  haml :duck, :layout => :'layouts/application'
 end

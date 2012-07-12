@@ -11,7 +11,11 @@
     
     %script{:src => "/javascripts/lib/modernizr-1.6.min.js"}
   %body
-    = yield
+    .wrapper
+      = yield
+      .push
+    .footer
+      &copy; Donovan Hutchinson
     = partial :_analytics
     
     %script{:src => "/javascripts/lib/jquery-1.7.2.min.js"}

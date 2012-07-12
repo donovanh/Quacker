@@ -37,10 +37,10 @@
       .from
         %span.label From:
         %ul
-          %li
-            %input{:type => 'radio', :name => 'from', :value => 'en', :checked => ''} English
+          %li{:'data-val' => 'en'}
+            English
           %span.hidden
-            %li
+            %li{:'data-val' => 'es'}
               %input{:type => 'radio', :name => 'from', :value => 'es'} Spanish
       .to
         %span.label To:

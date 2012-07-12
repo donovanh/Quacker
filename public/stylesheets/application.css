@@ -525,17 +525,14 @@ a:focus, a:active {
   outline: none;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font: 120% "Kotta One", serif;
   color: #555555;
-  background: #fffb95;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 300, color-stop(0%, #ffffff), color-stop(100%, #fffb95));
-  background-image: -webkit-linear-gradient(#ffffff, #fffb95 300px);
-  background-image: -moz-linear-gradient(#ffffff, #fffb95 300px);
-  background-image: -o-linear-gradient(#ffffff, #fffb95 300px);
-  background-image: -ms-linear-gradient(#ffffff, #fffb95 300px);
-  background-image: linear-gradient(#ffffff, #fffb95 300px);
-  background-repeat: no-repeat;
+  background: blue;
   color: #0d0d0d;
   min-height: 400px;
 }
@@ -563,7 +560,7 @@ body {
 }
 .maincontent header {
   width: 100%;
-  margin-top: 40px;
+  padding-top: 40px;
 }
 .maincontent header h1 {
   width: 300px;
@@ -655,7 +652,8 @@ body {
 
 #form-holder, #success-holder, #translation-holder {
   width: 500px;
-  margin: 10px auto;
+  padding: 3% 0 0;
+  margin: 0 auto;
 }
 #form-holder textarea, #success-holder textarea, #translation-holder textarea {
   width: 460px;
@@ -708,4 +706,219 @@ body {
 #form-holder .from-to ul li, #success-holder .from-to ul li, #translation-holder .from-to ul li {
   line-height: 20px;
   padding: 0 0 0 10px;
+}
+
+.wrapper {
+  min-height: 600px;
+  background: #fffb95;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #fffb95));
+  background-image: -webkit-linear-gradient(#ffffff, #fffb95);
+  background-image: -moz-linear-gradient(#ffffff, #fffb95);
+  background-image: -o-linear-gradient(#ffffff, #fffb95);
+  background-image: -ms-linear-gradient(#ffffff, #fffb95);
+  background-image: linear-gradient(#ffffff, #fffb95);
+  background-repeat: no-repeat;
+}
+
+.footer {
+  min-height: 100px;
+  text-align: center;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 20, color-stop(0%, #fffb95), color-stop(100%, #0000ff));
+  background-image: -webkit-linear-gradient(#fffb95, #0000ff 20px);
+  background-image: -moz-linear-gradient(#fffb95, #0000ff 20px);
+  background-image: -o-linear-gradient(#fffb95, #0000ff 20px);
+  background-image: -ms-linear-gradient(#fffb95, #0000ff 20px);
+  background-image: linear-gradient(#fffb95, #0000ff 20px);
+  background-repeat: no-repeat;
+  padding: 80px 0 0;
+  color: white;
+}
+
+/* Duck rules */
+.duck {
+  width: 800px;
+  margin: 30px auto;
+  height: 600px;
+  position: relative;
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+.duck .head {
+  width: 200px;
+  height: 200px;
+  background-color: #ffea00;
+  border: 12px solid black;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  -ms-border-radius: 200px;
+  -o-border-radius: 200px;
+  border-radius: 200px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+.duck .beak {
+  position: absolute;
+  left: 0;
+  top: 24px;
+}
+.duck .beak-part1 {
+  width: 163px;
+  height: 58px;
+  background-color: #ffea00;
+  border: 10px solid black;
+  -webkit-border-radius: 90px 50%;
+  -moz-border-radius: 90px / 50%;
+  -ms-border-radius: 90px / 50%;
+  -o-border-radius: 90px / 50%;
+  border-radius: 90px / 50%;
+  left: -80px;
+  top: 89px;
+  position: absolute;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+.duck .beak-part2 {
+  width: 185px;
+  height: 70px;
+  background-color: #ffea00;
+  border: 10px solid black;
+  -webkit-border-radius: 105px 50%;
+  -moz-border-radius: 105px / 50%;
+  -ms-border-radius: 105px / 50%;
+  -o-border-radius: 105px / 50%;
+  border-radius: 105px / 50%;
+  left: -106px;
+  top: 55px;
+  position: absolute;
+}
+.duck .eye {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  top: 26px;
+  left: 90px;
+  background-color: white;
+  border: 10px solid black;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+}
+.duck .eye-dark {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  border-radius: 50px;
+}
+.duck .eye-shine {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  top: 3px;
+  left: 3px;
+  position: absolute;
+}
+.duck .body {
+  width: 400px;
+  height: 230px;
+  border: 12px solid black;
+  background-color: #ffea00;
+  -webkit-border-radius: 200px 50%;
+  -moz-border-radius: 200px / 50%;
+  -ms-border-radius: 200px / 50%;
+  -o-border-radius: 200px / 50%;
+  border-radius: 200px / 50%;
+  -moz-border-radius-topright: 40px;
+  -webkit-border-top-right-radius: 40px;
+  -ms-border-top-right-radius: 40px;
+  -o-border-top-right-radius: 40px;
+  border-top-right-radius: 40px;
+  -moz-border-radius-bottomright: 200px;
+  -webkit-border-bottom-right-radius: 200px;
+  -ms-border-bottom-right-radius: 200px;
+  -o-border-bottom-right-radius: 200px;
+  border-bottom-right-radius: 200px;
+  top: 140px;
+  left: 50px;
+  position: absolute;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+.duck .wing {
+  top: 14px;
+  left: 205px;
+  position: absolute;
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+.duck .wing-part1, .duck .wing-part2, .duck .wing-part3 {
+  background-color: black;
+  width: 163px;
+  height: 58px;
+  border: 10px solid black;
+  -webkit-border-radius: 90px 50%;
+  -moz-border-radius: 90px / 50%;
+  -ms-border-radius: 90px / 50%;
+  -o-border-radius: 90px / 50%;
+  border-radius: 90px / 50%;
+  position: absolute;
+}
+.duck .wing-part1a, .duck .wing-part2a, .duck .wing-part3a {
+  width: 178px;
+  height: 62px;
+  -webkit-border-radius: 74px 50%;
+  -moz-border-radius: 74px / 50%;
+  -ms-border-radius: 74px / 50%;
+  -o-border-radius: 74px / 50%;
+  border-radius: 74px / 50%;
+  background-color: #ffea00;
+  left: -29px;
+  top: -4px;
+  position: absolute;
+}
+.duck .wing-part2 {
+  top: 50px;
+  left: -20px;
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+
+.wing-part1 {
+  top: 78px;
+  left: -80px;
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
 }
