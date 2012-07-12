@@ -60,7 +60,7 @@
 		var tempContainer = $('<div id="duckfoo" style="display:none"></div>')
 		tempContainer.append(_.template($('#duckTemplate').html()));
 		$('.footer').append(tempContainer);
-		$('#duckfoo').delay(1000).fadeIn();
+		$('#duckfoo').fadeIn();
 	}
 	
 }());

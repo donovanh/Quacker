@@ -13,7 +13,7 @@
 a
   color: #000
   text-decoration: none
-  font-weight:bold
+  font-weight: bold
   &:hover
     color: #000
   &:focus,
@@ -90,7 +90,6 @@ body
     color: #008
     outline: none
     margin: 30px 0
-    box-shadow: #882 0 2px 1px
 
   .from-to
     width: 60%
@@ -167,11 +166,13 @@ body
     left: 5.9375em
     top: 0
     @include rotate(5deg)
+    @include background-image(radial-gradient(7em 2em, #ffea00 6em, #ffd800 6em))
+    background-repeat: no-repeat
   
   .beak
     position: absolute
     left: 0
-    top: 1.5em
+    top: 2em
     
   .beak-part1
     width: 10.1875em
@@ -235,6 +236,8 @@ body
     left: 6.25em
     position: absolute
     @include rotate(-10deg)
+    @include background-image(radial-gradient(13em 2em, #ffea00 11em, #ffd800 11em))
+    background-repeat: no-repeat
     
   .wing
     top: 0.875em
