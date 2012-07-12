@@ -1,15 +1,20 @@
 .maincontent
-  %header.clearfix
-    %h1 Quack quack!
+  %header
+    %h1
+      :plain
+        Quacker&nbsp;
     .twitterInfo
       %p
         - if @current_user
           %span.signed-in
-            Signed in as
+            %span.greeting
+              Hi there
             %span.signed-in-as
               %a{:href => "http://twitter.com/#{@current_user.nickname}"}<
-                = @current_user.name
-            %span.button
+                = "@#{@current_user.nickname}"
+            %br
+            %small.logout
+              Not you?
               %a{:href => '/logout'}<
                 Logout
         - else
@@ -35,21 +40,20 @@
     %textarea{:name => 'mytext', :id => 'mytext', :placeholder => 'type your text here'}
     .from-to
       .from
-        %span.label From:
         %ul
           %li{:'data-val' => 'en'}
             English
           %span.hidden
             %li{:'data-val' => 'es'}
-              %input{:type => 'radio', :name => 'from', :value => 'es'} Spanish
+              Spanish
       .to
         %span.label To:
         %ul
-          %li
-            %input{:type => 'radio', :name => 'to', :value => 'es', :checked => ''} Spanish
+          %li{:'data-val' => 'es'}
+            Spanish
           %span.hidden
-            %li
-              %input{:type => 'radio', :name => 'to', :value => 'en'} English
+            %li{:'data-val' => 'en'}
+              English
     %input{:type => 'submit', :name => 'translate', :value => 'Translate', :class => 'submitters'}
 
 %script#successTemplate{:type => "text/template"}
@@ -62,6 +66,7 @@
           View
         )
 
-
+%script#duckTemplate{:type => "text/template"}
+  = partial :duck
 
 

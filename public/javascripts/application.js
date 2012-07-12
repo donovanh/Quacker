@@ -55,6 +55,14 @@
 	var myMessage = new myText();
 	var messageView = new myTextInputView({model: myMessage});
 	
+	// Initialise ducky
+	if ($('html').hasClass('borderradius') && $('html').hasClass('csstransitions')) {
+		var tempContainer = $('<div id="duckfoo" style="display:none"></div>')
+		tempContainer.append(_.template($('#duckTemplate').html()));
+		$('.footer').append(tempContainer);
+		$('#duckfoo').delay(1000).fadeIn();
+	}
+	
 }());
 
 /* Functions */
@@ -66,7 +74,6 @@ function sendTweet(e) {
 		translatedText,
 		function(data, status) {
 			if (status == 'success') {
-				console.log('Tweeted');
 				showSuccess();
 			} else {
 				// Error - tweet didn't post
