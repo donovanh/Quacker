@@ -584,49 +584,49 @@ body {
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
   border-radius: 15px;
-  background: url('/images/sassy-ie-overlay.png?1341778424') repeat-x bottom left #ff8400;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffc280), color-stop(50%, #ff8400), color-stop(100%, #cc6a00));
-  background: -webkit-linear-gradient(#ffc280, #ff8400 50%, #cc6a00);
-  background: -moz-linear-gradient(#ffc280, #ff8400 50%, #cc6a00);
-  background: -o-linear-gradient(#ffc280, #ff8400 50%, #cc6a00);
-  background: linear-gradient(#ffc280, #ff8400 50%, #cc6a00);
-  -webkit-box-shadow: #ffe6cc 0 1px 0 inset;
-  -moz-box-shadow: #ffe6cc 0 1px 0 inset;
-  box-shadow: #ffe6cc 0 1px 0 inset;
-  border: 1px solid #b35c00;
+  background: url('/images/sassy-ie-overlay.png?1341778424') repeat-x bottom left #000088;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0909ff), color-stop(50%, #000088), color-stop(100%, #000055));
+  background: -webkit-linear-gradient(#0909ff, #000088 50%, #000055);
+  background: -moz-linear-gradient(#0909ff, #000088 50%, #000055);
+  background: -o-linear-gradient(#0909ff, #000088 50%, #000055);
+  background: linear-gradient(#0909ff, #000088 50%, #000055);
+  -webkit-box-shadow: #5555ff 0 1px 0 inset;
+  -moz-box-shadow: #5555ff 0 1px 0 inset;
+  box-shadow: #5555ff 0 1px 0 inset;
+  border: 1px solid #00003c;
   color: white;
-  text-shadow: #d46e00 0 -1px 0;
-  -webkit-box-shadow: #d66f00 0 0.2em 0.4em inset;
-  -moz-box-shadow: #d66f00 0 0.2em 0.4em inset;
-  box-shadow: #d66f00 0 0.2em 0.4em inset;
-  border: solid 1px #b35c00;
-  border: 8px solid #000088;
+  text-shadow: #00005d 0 -1px 0;
+  -webkit-box-shadow: #00005f 0 0.2em 0.4em inset;
+  -moz-box-shadow: #00005f 0 0.2em 0.4em inset;
+  box-shadow: #00005f 0 0.2em 0.4em inset;
+  border: solid 1px #00003c;
+  border: 6px solid #000088;
 }
 .button:hover, input[type=submit]:hover {
-  background-color: #cc6a00;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffbd75), color-stop(50%, #cc6a00), color-stop(100%, #a35400));
-  background: -webkit-linear-gradient(#ffbd75, #cc6a00 50%, #a35400);
-  background: -moz-linear-gradient(#ffbd75, #cc6a00 50%, #a35400);
-  background: -o-linear-gradient(#ffbd75, #cc6a00 50%, #a35400);
-  background: linear-gradient(#ffbd75, #cc6a00 50%, #a35400);
+  background-color: #000055;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0000fd), color-stop(50%, #000055), color-stop(100%, #00002c));
+  background: -webkit-linear-gradient(#0000fd, #000055 50%, #00002c);
+  background: -moz-linear-gradient(#0000fd, #000055 50%, #00002c);
+  background: -o-linear-gradient(#0000fd, #000055 50%, #00002c);
+  background: linear-gradient(#0000fd, #000055 50%, #00002c);
 }
 .button:active, input[type=submit]:active {
-  -webkit-box-shadow: #a35400 0 1px 2px inset;
-  -moz-box-shadow: #a35400 0 1px 2px inset;
-  box-shadow: #a35400 0 1px 2px inset;
+  -webkit-box-shadow: #00002c 0 1px 2px inset;
+  -moz-box-shadow: #00002c 0 1px 2px inset;
+  box-shadow: #00002c 0 1px 2px inset;
 }
 .button.disabled, .button[disabled], input[type=submit].disabled, input[type=submit][disabled] {
   opacity: 0.6;
-  background: #cc6a00;
+  background: #000055;
   cursor: default;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
 .button:active, input[type=submit]:active {
-  -webkit-box-shadow: #c26400 0 0.2em 0.4em inset;
-  -moz-box-shadow: #c26400 0 0.2em 0.4em inset;
-  box-shadow: #c26400 0 0.2em 0.4em inset;
+  -webkit-box-shadow: #00004b 0 0.2em 0.4em inset;
+  -moz-box-shadow: #00004b 0 0.2em 0.4em inset;
+  box-shadow: #00004b 0 0.2em 0.4em inset;
 }
 .button a, input[type=submit] a {
   color: inherit;
