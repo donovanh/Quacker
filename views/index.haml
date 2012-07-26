@@ -30,11 +30,13 @@
 
 %script#translationTemplate{:type => "text/template"}
   .output-text
-    %p
-      Output text:
-      %textarea#translatedText
-        <%= translatedText %>
-      %span.button.logged-in#tweet-this
+    %textarea#translatedText
+      <%= translatedText %>
+    %p.button#cancel
+      %span
+        Go back
+    %p.button#tweet-this.logged-in
+      %span
         Tweet this
 
 %script#messageTemplate{:type => "text/template"}
@@ -43,30 +45,36 @@
     .from-to
       .from
         %ul
-          %li{:'data-val' => 'en'}
+          %li.selected{:'data-val' => 'en'}
             English
-          %span.hidden
-            %li{:'data-val' => 'es'}
-              Spanish
+          %li{:'data-val' => 'es'}
+            Spanish
+          %li{:'data-val' => 'fr'}
+            French
+          %li{:'data-val' => 'de'}
+            German
       .to
         %span.label To:
         %ul
-          %li{:'data-val' => 'es'}
+          %li.selected{:'data-val' => 'es'}
             Spanish
-          %span.hidden
-            %li{:'data-val' => 'en'}
-              English
+          %li{:'data-val' => 'es'}
+            English
+          %li{:'data-val' => 'fr'}
+            French
+          %li{:'data-val' => 'de'}
+            German
     %input{:type => 'submit', :name => 'translate', :value => 'Translate', :class => 'submitters'}
 
 %script#successTemplate{:type => "text/template"}
   .success
     %p
       Well done! You've translated a tweet!
-      - if @current_user
-        (
-        %a{:href => "http://twitter.com/#{@current_user.nickname}"}
-          View
-        )
+    %p.button
+      %span
+        - if @current_user
+          %a{:href => "http://twitter.com/#{@current_user.nickname}"}
+            View
 
 %script#duckTemplate{:type => "text/template"}
   = partial :duck

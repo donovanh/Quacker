@@ -537,20 +537,7 @@ body {
 }
 
 #tweet-this {
-  border: 1px solid #999999;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  background-color: #aaaaaa;
-  color: white;
-  display: block;
-  padding: 10px;
-}
-#tweet-this:hover {
-  color: blue;
-  cursor: pointer;
+  float: right;
 }
 
 .maincontent {
@@ -632,6 +619,65 @@ body {
 .button a, input[type=submit] a {
   color: inherit;
   text-decoration: none;
+  font-weight: normal;
+}
+
+.button#cancel {
+  font-size: 19px;
+  padding: 0.3em 1.5em;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 1.5;
+  text-decoration: none;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+  background: url('/images/sassy-ie-overlay.png?1341778424') repeat-x bottom left #eeeeee;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(50%, #eeeeee), color-stop(100%, #d4d4d4));
+  background: -webkit-linear-gradient(#ffffff, #eeeeee 50%, #d4d4d4);
+  background: -moz-linear-gradient(#ffffff, #eeeeee 50%, #d4d4d4);
+  background: -o-linear-gradient(#ffffff, #eeeeee 50%, #d4d4d4);
+  background: linear-gradient(#ffffff, #eeeeee 50%, #d4d4d4);
+  -webkit-box-shadow: white 0 1px 0 inset;
+  -moz-box-shadow: white 0 1px 0 inset;
+  box-shadow: white 0 1px 0 inset;
+  border: 1px solid #c8c8c8;
+  color: white;
+  text-shadow: #bbbbbb 0 -1px 0;
+  -webkit-box-shadow: #dadada 0 0.2em 0.4em inset;
+  -moz-box-shadow: #dadada 0 0.2em 0.4em inset;
+  box-shadow: #dadada 0 0.2em 0.4em inset;
+  border: solid 1px #c8c8c8;
+  border: 6px solid #9999ee;
+  color: #aaaaaa;
+}
+.button#cancel:hover {
+  background-color: #d4d4d4;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fafafa), color-stop(50%, #d4d4d4), color-stop(100%, #c0c0c0));
+  background: -webkit-linear-gradient(#fafafa, #d4d4d4 50%, #c0c0c0);
+  background: -moz-linear-gradient(#fafafa, #d4d4d4 50%, #c0c0c0);
+  background: -o-linear-gradient(#fafafa, #d4d4d4 50%, #c0c0c0);
+  background: linear-gradient(#fafafa, #d4d4d4 50%, #c0c0c0);
+}
+.button#cancel:active {
+  -webkit-box-shadow: silver 0 1px 2px inset;
+  -moz-box-shadow: silver 0 1px 2px inset;
+  box-shadow: silver 0 1px 2px inset;
+}
+.button#cancel.disabled, .button#cancel[disabled] {
+  opacity: 0.6;
+  background: #d4d4d4;
+  cursor: default;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.button#cancel:active {
+  -webkit-box-shadow: #cfcfcf 0 0.2em 0.4em inset;
+  -moz-box-shadow: #cfcfcf 0 0.2em 0.4em inset;
+  box-shadow: #cfcfcf 0 0.2em 0.4em inset;
 }
 
 .submitters {
@@ -642,6 +688,20 @@ body {
 .signed-in {
   font-size: 18px;
   line-height: 22px;
+}
+
+.success {
+  text-align: center;
+  margin: 40px 0 0;
+  padding: 20px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+  background-color: #fff600;
+  font-size: 24px;
+  border: 10px solid #000088;
 }
 
 #form-holder, #success-holder, #translation-holder {
@@ -662,12 +722,11 @@ body {
   resize: none;
   color: #000088;
   outline: none;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 #form-holder .from-to, #success-holder .from-to, #translation-holder .from-to {
   width: 60%;
   float: left;
-  opacity: 0.6;
 }
 #form-holder .from-to .from, #form-holder .from-to .to, #success-holder .from-to .from, #success-holder .from-to .to, #translation-holder .from-to .from, #translation-holder .from-to .to {
   width: 50%;
@@ -684,7 +743,6 @@ body {
   padding-right: 10px;
   float: left;
   text-align: right;
-  font-size: 14px;
 }
 #form-holder .from-to ul, #form-holder .from-to li, #success-holder .from-to ul, #success-holder .from-to li, #translation-holder .from-to ul, #translation-holder .from-to li {
   margin: 0;
@@ -696,7 +754,28 @@ body {
 }
 #form-holder .from-to ul li, #success-holder .from-to ul li, #translation-holder .from-to ul li {
   line-height: 20px;
-  padding: 0 0 0 10px;
+  padding: 5px 0;
+  background-color: #eeeeff;
+  border: 1px solid white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  width: 100%;
+  display: none;
+  text-align: center;
+  margin: 5px 0;
+  opacity: 0.6;
+}
+#form-holder .from-to ul li:hover, #success-holder .from-to ul li:hover, #translation-holder .from-to ul li:hover {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #aaaaff;
+  opacity: 1;
+}
+#form-holder .from-to ul li:first-child, #success-holder .from-to ul li:first-child, #translation-holder .from-to ul li:first-child {
+  display: block;
 }
 
 .wrapper {
@@ -730,6 +809,11 @@ body {
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
   border-radius: 15px;
+}
+
+.dimmed {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
+  opacity: 0.25;
 }
 
 /* Duck rules */
@@ -776,6 +860,11 @@ body {
   width: 10.188em;
   height: 3.625em;
   background-color: #f1b500;
+  background-image: -webkit-gradient(radial, 7em 2em, 0, 7em 2em, 6, color-stop(100%, #f1b500), color-stop(100%, #daa400));
+  background-image: -webkit-radial-gradient(7em 2em, #f1b500 6em, #daa400 6em);
+  background-image: -moz-radial-gradient(7em 2em, #f1b500 6em, #daa400 6em);
+  background-image: -o-radial-gradient(7em 2em, #f1b500 6em, #daa400 6em);
+  background-image: radial-gradient(7em 2em, #f1b500 6em, #daa400 6em);
   border: 0.625em solid black;
   -webkit-border-radius: 5.625em 50%;
   -moz-border-radius: 5.625em / 50%;
@@ -793,6 +882,11 @@ body {
   width: 11.563em;
   height: 4.375em;
   background-color: #ffc000;
+  background-image: -webkit-gradient(radial, 7em 1em, 0, 7em 1em, 6, color-stop(100%, #ffc000), color-stop(100%, #daa400));
+  background-image: -webkit-radial-gradient(7em 1em, #ffc000 6em, #daa400 6em);
+  background-image: -moz-radial-gradient(7em 1em, #ffc000 6em, #daa400 6em);
+  background-image: -o-radial-gradient(7em 1em, #ffc000 6em, #daa400 6em);
+  background-image: radial-gradient(7em 1em, #ffc000 6em, #daa400 6em);
   border: 0.625em solid black;
   -webkit-border-radius: 6.563em 50%;
   -moz-border-radius: 6.563em / 50%;

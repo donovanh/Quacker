@@ -28,17 +28,9 @@ body
   background: #101dbf
   color: #222
   min-height: 400px
-  
+
 #tweet-this
-  border: 1px solid #999
-  @include border-radius(5px)
-  background-color: #aaa
-  color: #fff
-  display: block
-  padding: 10px
-  &:hover
-    color: blue
-    cursor: pointer
+  float: right
     
 .maincontent
   width: 960px
@@ -65,6 +57,13 @@ body
   a
     color: inherit
     text-decoration: none
+    font-weight: normal
+
+.button#cancel
+  @include sassy-button("shiny", 15px, 19px, #eee) 
+  @include sassy-button-style("inset", #eee)
+  border: 6px solid #99e
+  color: #aaa
 
 .submitters
   width: 40%
@@ -73,7 +72,16 @@ body
 .signed-in
   font-size: 18px
   line-height: 22px
-  
+
+.success 
+  text-align: center
+  margin: 40px 0 0
+  padding: 20px
+  @include border-radius(15px)
+  background-color: #fff600
+  font-size: 24px
+  border: 10px solid #008
+
 #form-holder, #success-holder, #translation-holder
   width: 500px
   margin: 0 auto
@@ -88,12 +96,11 @@ body
     resize: none
     color: #008
     outline: none
-    margin: 30px 0
+    margin: 20px 0
 
   .from-to
     width: 60%
     float: left
-    opacity: 0.6
 
     .from, .to
       width: 50%
@@ -110,7 +117,6 @@ body
       padding-right: 10px
       float: left
       text-align: right
-      font-size: 14px
       
     ul, li
       margin: 0
@@ -122,8 +128,24 @@ body
       
       li
         line-height: 20px
-        padding: 0 0 0 10px
-        
+        padding: 5px 0
+        background-color: #eef
+        border: 1px solid #fff
+        @include border-radius(10px)
+        width: 100%
+        display: none
+        text-align: center
+        margin: 5px 0
+        opacity: 0.6
+      
+      li:hover
+        cursor: pointer
+        background-color: #fff
+        border: 1px solid #aaf
+        opacity: 1
+      
+      li:first-child
+        display: block
 
 .wrapper
   min-height: 500px
@@ -143,6 +165,9 @@ body
   p
     background: #fff
     @include border-radius(15px)
+     
+.dimmed
+  @include opacity(0.25)
       
 /* Duck rules
 
@@ -177,6 +202,7 @@ body
     width: 10.1875em
     height: 3.625em
     background-color: #f1b500
+    @include background-image(radial-gradient(7em 2em, #f1b500 6em, #daa400 6em))
     border: 0.625em solid #000
     @include border-radius(5.625em,50%)
     left: -5em
@@ -188,6 +214,7 @@ body
     width: 11.5625em
     height: 4.375em
     background-color: #ffc000
+    @include background-image(radial-gradient(7em 1em, #ffc000 6em, #daa400 6em))
     border: 0.625em solid #000
     @include border-radius(6.5625em, 50%)
     left: -6.625em

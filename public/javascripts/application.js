@@ -1,7 +1,13 @@
 (function(){
 
-	//Backbone.emulateJSON = true;
-
+	// Global listeners
+	// Listener for tweet-this button
+	$('body').on('click', '#tweet-this.logged-in', sendTweet);
+	$('body').on('click', '#cancel', backToEditor);
+	
+	$('body').on('focus', '#form-holder.dimmed #mytext', backToEditor);
+	$('body').on('hover', '.from-to ul', toggleLanguageList);
+	
 	// Backbone basic structure
 	/**
 	 * Model: myText
@@ -23,10 +29,12 @@
 			'submit #toTranslate': 'getTranslation'
 		},
 		getTranslation: function(e) {
+			var translateFrom = $('.from li.selected').attr('data-val');
+			var translateTo = $('.to li.selected').attr('data-val');
 			myMessage = {
 				'mytext': $('#mytext').val(),
-	      'from': $('input[name=from]').val(),
-				'to': $('input[name=to]').val()
+	      'from': translateFrom,
+				'to': translateTo
 			};
 			// Set loading text
 			$('#toTranslate input[type=submit]').val('Translating...').attr('disabled',true);
@@ -39,6 +47,7 @@
 						$('#toTranslate input[type=submit]').val('Translate').attr('disabled',false);
 					} else {
 						// Error - probably Microsoft's fault - somebody tell Steve
+						// Show error message
 						$('#toTranslate input[type=submit]').val('Translate').attr('disabled',false);
 					}
 				}
@@ -46,8 +55,10 @@
 			e.preventDefault();
 		},
 		render: function() {
-			var templateHTML = _.template($('#messageTemplate').html(), {mytext: this.model.get("content")});
-			$(this.el).append(templateHTML);
+			var tempHTML = $('<div id="textform" style="display:none"></div>');
+			tempHTML.append(_.template($('#messageTemplate').html(), {mytext: this.model.get("content")}));
+			$(this.el).append(tempHTML);
+			$('#textform').fadeIn();
     }
 	});
 	
@@ -68,7 +79,9 @@
 /* Functions */
 
 function sendTweet(e) {
+	if ($('#tweet-this').hasClass('disabled')) return;
 	var translatedText = {translatedText: $('#translatedText').text().trim()};
+	$('#tweet-this').text('Sending...').addClass('disabled');
 	$.post(
 		'/tweet',
 		translatedText,
@@ -77,21 +90,32 @@ function sendTweet(e) {
 				showSuccess();
 			} else {
 				// Error - tweet didn't post
-				
+				$('#tweet-this').text('Oops. Try again!').removeClass('disabled');
 			}
 		}
 	);
 }
 
+function backToEditor(e) {
+	$('#translation-holder').slideUp();
+	$('#form-holder').removeClass('dimmed');
+}
+
 function showTranslatedText(translatedText) {
 	var templateHTML = _.template($('#translationTemplate').html(), {translatedText: translatedText});
-	$('#translation-holder').append(templateHTML);
-	// Listener for tweet-this button
-	$('#tweet-this.logged-in').click(sendTweet);
+	$('#translation-holder').text('').hide().append(templateHTML).slideDown('fast');
+	$('#form-holder').addClass('dimmed');
 }
 
 function showSuccess() {
 	var templateHTML = _.template($('#successTemplate').html());
 	$('#success-holder').hide().append(templateHTML);
-	$('#success-holder').fadeIn('fast');
+	$('#success-holder').slideDown('fast');
+	$('#form-holder, #translation-holder').fadeOut('fast');
 }
+
+function toggleLanguageList(e) {
+	console.log('poo');
+	$(e.target).parent().find('li').not('li:first-child').stop().slideToggle();
+}
+

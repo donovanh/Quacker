@@ -74,7 +74,7 @@ post '/translate' do
     params[:from],
     params[:to],
   "text/html")
-#  outputText = 'argle bargle doodly doo'
+  # outputText = 'argle bargle doodly doo'
   # Return as JSON object
   content_type :json
   {
@@ -88,22 +88,23 @@ end
 
 # Send out a tweet to the user's account
 post '/tweet' do
-  #current_user
+  # The following commented out to debug
   message_to_tweet = params["translatedText"]
-  Twitter.configure do |config|
-    config.consumer_key = myTwitterAppDetails[:app_id]
-    config.consumer_secret = myTwitterAppDetails[:app_secret]
-    config.oauth_token = current_user[:oAuthToken]
-    config.oauth_token_secret = current_user[:oAuthTokenSecret]
-  end
-  twittered = Twitter.update(message_to_tweet)
+    # Twitter.configure do |config|
+    #   config.consumer_key = myTwitterAppDetails[:app_id]
+    #   config.consumer_secret = myTwitterAppDetails[:app_secret]
+    #   config.oauth_token = current_user[:oAuthToken]
+    #   config.oauth_token_secret = current_user[:oAuthTokenSecret]
+    # end
+    # twittered = Twitter.update(message_to_tweet)
+    
   # TODO: Handle errors: Twitter::Error::Forbidden: Status is a duplicate.
+  #current_user
   # Return as JSON object
   content_type :json
   {
     :message_to_tweet => message_to_tweet,
-    :done => "yes",
-    :twittered => twittered
+    :done => "yes"
   }.to_json
 end
 
