@@ -103,28 +103,26 @@ body
     float: left
 
     .from, .to
-      width: 50%
-
-    .from
+      width: 45%
       float: left
     
-    .to
-      float: right
-    
-    .label
-      text-shadow: #882 0 1px 0
-      width: 50px
-      padding-right: 10px
+    .to-text
       float: left
-      text-align: right
+      width: 10%
+    
+      .label
+        width: 40px
+        float: left
+        text-align: left
+        line-height: 42px
       
     ul, li
       margin: 0
       padding: 0
     
     ul
-      width: 90px
-      float: right
+      width: 90%
+      float: left
       
       li
         line-height: 20px
@@ -146,6 +144,16 @@ body
       
       li:first-child
         display: block
+
+      .from
+        float: left
+
+      .to
+        float: right
+        
+        ul
+          width: 75%
+    
 
 .wrapper
   min-height: 500px

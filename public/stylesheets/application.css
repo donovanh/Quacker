@@ -729,28 +729,26 @@ body {
   float: left;
 }
 #form-holder .from-to .from, #form-holder .from-to .to, #success-holder .from-to .from, #success-holder .from-to .to, #translation-holder .from-to .from, #translation-holder .from-to .to {
-  width: 50%;
-}
-#form-holder .from-to .from, #success-holder .from-to .from, #translation-holder .from-to .from {
+  width: 45%;
   float: left;
 }
-#form-holder .from-to .to, #success-holder .from-to .to, #translation-holder .from-to .to {
-  float: right;
-}
-#form-holder .from-to .label, #success-holder .from-to .label, #translation-holder .from-to .label {
-  text-shadow: #888822 0 1px 0;
-  width: 50px;
-  padding-right: 10px;
+#form-holder .from-to .to-text, #success-holder .from-to .to-text, #translation-holder .from-to .to-text {
   float: left;
-  text-align: right;
+  width: 10%;
+}
+#form-holder .from-to .to-text .label, #success-holder .from-to .to-text .label, #translation-holder .from-to .to-text .label {
+  width: 40px;
+  float: left;
+  text-align: left;
+  line-height: 42px;
 }
 #form-holder .from-to ul, #form-holder .from-to li, #success-holder .from-to ul, #success-holder .from-to li, #translation-holder .from-to ul, #translation-holder .from-to li {
   margin: 0;
   padding: 0;
 }
 #form-holder .from-to ul, #success-holder .from-to ul, #translation-holder .from-to ul {
-  width: 90px;
-  float: right;
+  width: 90%;
+  float: left;
 }
 #form-holder .from-to ul li, #success-holder .from-to ul li, #translation-holder .from-to ul li {
   line-height: 20px;
@@ -776,6 +774,15 @@ body {
 }
 #form-holder .from-to ul li:first-child, #success-holder .from-to ul li:first-child, #translation-holder .from-to ul li:first-child {
   display: block;
+}
+#form-holder .from-to ul .from, #success-holder .from-to ul .from, #translation-holder .from-to ul .from {
+  float: left;
+}
+#form-holder .from-to ul .to, #success-holder .from-to ul .to, #translation-holder .from-to ul .to {
+  float: right;
+}
+#form-holder .from-to ul .to ul, #success-holder .from-to ul .to ul, #translation-holder .from-to ul .to ul {
+  width: 75%;
 }
 
 .wrapper {
@@ -837,7 +844,7 @@ body {
   -o-border-radius: 12.5em;
   border-radius: 12.5em;
   position: absolute;
-  left: 5.938em;
+  left: 5.9375em;
   top: 0;
   -webkit-transform: rotate(5deg);
   -moz-transform: rotate(5deg);
@@ -857,7 +864,7 @@ body {
   top: 2em;
 }
 .duck .beak-part1 {
-  width: 10.188em;
+  width: 10.1875em;
   height: 3.625em;
   background-color: #f1b500;
   background-image: -webkit-gradient(radial, 7em 2em, 0, 7em 2em, 6, color-stop(100%, #f1b500), color-stop(100%, #daa400));
@@ -870,7 +877,7 @@ body {
   -moz-border-radius: 5.625em / 50%;
   border-radius: 5.625em / 50%;
   left: -5em;
-  top: 5.563em;
+  top: 5.5625em;
   position: absolute;
   -webkit-transform: rotate(-20deg);
   -moz-transform: rotate(-20deg);
@@ -879,7 +886,7 @@ body {
   transform: rotate(-20deg);
 }
 .duck .beak-part2 {
-  width: 11.563em;
+  width: 11.5625em;
   height: 4.375em;
   background-color: #ffc000;
   background-image: -webkit-gradient(radial, 7em 1em, 0, 7em 1em, 6, color-stop(100%, #ffc000), color-stop(100%, #daa400));
@@ -888,17 +895,17 @@ body {
   background-image: -o-radial-gradient(7em 1em, #ffc000 6em, #daa400 6em);
   background-image: radial-gradient(7em 1em, #ffc000 6em, #daa400 6em);
   border: 0.625em solid black;
-  -webkit-border-radius: 6.563em 50%;
-  -moz-border-radius: 6.563em / 50%;
-  border-radius: 6.563em / 50%;
+  -webkit-border-radius: 6.5625em 50%;
+  -moz-border-radius: 6.5625em / 50%;
+  border-radius: 6.5625em / 50%;
   left: -6.625em;
-  top: 3.438em;
+  top: 3.4375em;
   position: absolute;
 }
 .duck .eye {
   position: absolute;
-  width: 2.813em;
-  height: 2.813em;
+  width: 2.8125em;
+  height: 2.8125em;
   padding: 0.625em;
   top: 1.625em;
   left: 5.625em;
@@ -915,8 +922,8 @@ body {
   height: 3.125em;
   background-color: black;
   position: absolute;
-  left: 0.313em;
-  top: 0.313em;
+  left: 0.3125em;
+  top: 0.3125em;
   -webkit-border-radius: 3.125em;
   -moz-border-radius: 3.125em;
   -ms-border-radius: 3.125em;
@@ -932,8 +939,8 @@ body {
   -ms-border-radius: 1.25em;
   -o-border-radius: 1.25em;
   border-radius: 1.25em;
-  top: 0.188em;
-  left: 0.188em;
+  top: 0.1875em;
+  left: 0.1875em;
   position: absolute;
 }
 .duck .body {
@@ -967,7 +974,7 @@ body {
 }
 .duck .wing {
   top: 0.875em;
-  left: 12.813em;
+  left: 12.8125em;
   position: absolute;
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -977,7 +984,7 @@ body {
 }
 .duck .wing-part1, .duck .wing-part2, .duck .wing-part3 {
   background-color: black;
-  width: 10.188em;
+  width: 10.1875em;
   height: 3.625em;
   border: 0.625em solid black;
   -webkit-border-radius: 5.625em 50%;
@@ -992,7 +999,7 @@ body {
   -moz-border-radius: 4.625em / 50%;
   border-radius: 4.625em / 50%;
   background-color: #ffea00;
-  left: -1.813em;
+  left: -1.8125em;
   top: -0.25em;
   position: absolute;
 }
