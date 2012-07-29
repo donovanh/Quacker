@@ -6,6 +6,15 @@ This is a demo site I constructed while learning some Sinatra basics. If it's of
 
 As the site is Sinatra based, you need to have Ruby installed. The Gemfile lists dependencies.
 
+## Settings
+
+I've referenced a <code>settings.rb</code> file in the app.rb. So that nothing explodes, you'll need to make a "settings.rb" file in the root with the following structure:
+
+    set :twitter_id => 'foo mcfoo',
+       :twitter_secret => 'scrooge mcduck',
+       :microsoft_translate_id => 'omg-bbq',
+       :microsoft_translate_secret => 'dat secret ='
+
 ## Start your engines
 
 Get the local server going by running:
