@@ -2,6 +2,10 @@
 
 This is a demo site I constructed while learning some Sinatra basics. If it's of use, feel free to have a poke at it. I'd only ask that you not pass it off as your own work.
 
+##Live example
+
+For the moment, the crazy duck quacks at [quack.herokuapp.com](http://quack.herokuapp.com)
+
 ## Usage
 
 As the site is Sinatra based, you need to have Ruby installed. The Gemfile lists dependencies.
