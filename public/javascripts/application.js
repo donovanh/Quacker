@@ -1,12 +1,16 @@
+var doLanguageListToggle = true;
+	
 (function(){
 
 	// Global listeners
 	// Listener for tweet-this button
 	$('body').on('click', '#tweet-this.logged-in', sendTweet);
+	$('body').on('click', '#tweet-this.not-logged-in', logInWithTwitter);
 	$('body').on('click', '#cancel', backToEditor);
 	
 	$('body').on('focus', '#form-holder.dimmed #mytext', backToEditor);
 	$('body').on('hover', '.from-to ul', toggleLanguageList);
+	$('body').on('click', '.from-to li', toggleLanguageSelected);
 	
 	// Backbone basic structure
 	/**
@@ -29,6 +33,9 @@
 			'submit #toTranslate': 'getTranslation'
 		},
 		getTranslation: function(e) {
+			e.preventDefault();
+			if ($('#mytext').val() == '')
+				return;
 			var translateFrom = $('.from li.selected').attr('data-val');
 			var translateTo = $('.to li.selected').attr('data-val');
 			myMessage = {
@@ -52,7 +59,6 @@
 					}
 				}
 			);
-			e.preventDefault();
 		},
 		render: function() {
 			var tempHTML = $('<div id="textform" style="display:none"></div>');
@@ -70,7 +76,7 @@
 	if ($('html').hasClass('borderradius') && $('html').hasClass('csstransitions')) {
 		var tempContainer = $('<div id="duckfoo" style="display:none"></div>')
 		tempContainer.append(_.template($('#duckTemplate').html()));
-		$('.footer').append(tempContainer);
+		$('.duck-holder').append(tempContainer);
 		$('#duckfoo').fadeIn();
 	}
 	
@@ -96,6 +102,10 @@ function sendTweet(e) {
 	);
 }
 
+function logInWithTwitter() {
+	document.location.href='/sign_in';
+}
+
 function backToEditor(e) {
 	$('#translation-holder').slideUp();
 	$('#form-holder').removeClass('dimmed');
@@ -115,7 +125,18 @@ function showSuccess() {
 }
 
 function toggleLanguageList(e) {
-	console.log('poo');
-	$(e.target).parent().find('li').not('li:first-child').stop().slideToggle();
+	if (doLanguageListToggle)
+		$(e.target).parent().find('li').not('li.selected').stop().slideToggle();
+	else
+		doLanguageListToggle = true;
+}
+
+function toggleLanguageSelected(e) {
+	console.log($(e.target));
+	$(e.target).parent().find('li.selected').removeClass('selected');
+	$(e.target).addClass('selected');
+	$(e.target).parent().find('li').hide();
+	$(e.target).parent().find('li.selected').fadeIn();
+	doLanguageListToggle = false;
 }
 

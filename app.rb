@@ -24,6 +24,12 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/database
 
 require './settings'
 
+# settings.rb takes the following format
+# set :twitter_id => 'foo mcfoo',
+#     :twitter_secret => 'scrooge mcduck',
+#     :microsoft_translate_id => 'omg-bbq',
+#     :microsoft_translate_secret => 'dat secret ='
+
 # Twitter app details
 myTwitterAppDetails = {
   :app_id =>      ENV['TWITTER_ID'] || settings.twitter_id,
@@ -90,13 +96,13 @@ end
 post '/tweet' do
   # The following commented out to debug
   message_to_tweet = params["translatedText"]
-    # Twitter.configure do |config|
-    #   config.consumer_key = myTwitterAppDetails[:app_id]
-    #   config.consumer_secret = myTwitterAppDetails[:app_secret]
-    #   config.oauth_token = current_user[:oAuthToken]
-    #   config.oauth_token_secret = current_user[:oAuthTokenSecret]
-    # end
-    # twittered = Twitter.update(message_to_tweet)
+    Twitter.configure do |config|
+      config.consumer_key = myTwitterAppDetails[:app_id]
+      config.consumer_secret = myTwitterAppDetails[:app_secret]
+      config.oauth_token = current_user[:oAuthToken]
+      config.oauth_token_secret = current_user[:oAuthTokenSecret]
+    end
+    twittered = Twitter.update(message_to_tweet)
     
   # TODO: Handle errors: Twitter::Error::Forbidden: Status is a duplicate.
   #current_user

@@ -651,6 +651,7 @@ body {
   box-shadow: #dadada 0 0.2em 0.4em inset;
   border: solid 1px #c8c8c8;
   border: 6px solid #9999ee;
+  text-shadow: 0;
   color: #aaaaaa;
 }
 .button#cancel:hover {
@@ -764,7 +765,8 @@ body {
   display: none;
   text-align: center;
   margin: 5px 0;
-  opacity: 0.6;
+  opacity: 0.8;
+  z-index: 99;
 }
 #form-holder .from-to ul li:hover, #success-holder .from-to ul li:hover, #translation-holder .from-to ul li:hover {
   cursor: pointer;
@@ -772,7 +774,10 @@ body {
   border: 1px solid #aaaaff;
   opacity: 1;
 }
-#form-holder .from-to ul li:first-child, #success-holder .from-to ul li:first-child, #translation-holder .from-to ul li:first-child {
+#form-holder .from-to ul li.selected, #success-holder .from-to ul li.selected, #translation-holder .from-to ul li.selected {
+  background-color: white;
+  border: 1px solid #aaaaff;
+  opacity: 1;
   display: block;
 }
 #form-holder .from-to ul .from, #success-holder .from-to ul .from, #translation-holder .from-to ul .from {
@@ -797,17 +802,18 @@ body {
 }
 
 .footer {
-  min-height: 100px;
-  text-align: center;
+  position: relative;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 5, color-stop(0%, #fffb95), color-stop(100%, #101dbf));
   background-image: -webkit-linear-gradient(#fffb95, #101dbf 5px);
   background-image: -moz-linear-gradient(#fffb95, #101dbf 5px);
   background-image: -o-linear-gradient(#fffb95, #101dbf 5px);
   background-image: linear-gradient(#fffb95, #101dbf 5px);
+  z-index: -1;
+  min-height: 100px;
+  text-align: center;
   background-repeat: no-repeat;
   padding: 80px 0 0;
   color: #000088;
-  position: relative;
 }
 .footer p {
   background: white;
@@ -824,12 +830,16 @@ body {
 }
 
 /* Duck rules */
+.duck-holder {
+  position: relative;
+}
+
 .duck {
   font-size: 12px;
   width: 32.125em;
   height: 25em;
   position: absolute;
-  top: -140px;
+  top: -120px;
   left: 40px;
   /* @include rotateY(180deg) */
 }

@@ -35,9 +35,14 @@
     %p.button#cancel
       %span
         Go back
-    %p.button#tweet-this.logged-in
-      %span
-        Tweet this
+    - if @current_user
+      %p.button#tweet-this.logged-in
+        %span
+          Tweet this
+    - else
+      %p.button#tweet-this.not-logged-in
+        %span
+          Log in to tweet this
 
 %script#messageTemplate{:type => "text/template"}
   %form{:action => '/translate', :method => 'post', :id => 'toTranslate'}
@@ -53,6 +58,10 @@
             French
           %li{:'data-val' => 'de'}
             German
+          %li{:'data-val' => 'pl'}
+            Polish
+          %li{:'data-val' => 'ja'}
+            Japanese
       .to-text
         %span.label to
       .to
@@ -65,6 +74,10 @@
             French
           %li{:'data-val' => 'de'}
             German
+          %li{:'data-val' => 'pl'}
+            Polish
+          %li{:'data-val' => 'ja'}
+            Japanese
     %input{:type => 'submit', :name => 'translate', :value => 'Translate', :class => 'submitters'}
 
 %script#successTemplate{:type => "text/template"}

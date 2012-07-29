@@ -63,6 +63,7 @@ body
   @include sassy-button("shiny", 15px, 19px, #eee) 
   @include sassy-button-style("inset", #eee)
   border: 6px solid #99e
+  @include text-shadow(0)
   color: #aaa
 
 .submitters
@@ -134,7 +135,8 @@ body
         display: none
         text-align: center
         margin: 5px 0
-        opacity: 0.6
+        opacity: 0.8
+        z-index: 99
       
       li:hover
         cursor: pointer
@@ -142,7 +144,10 @@ body
         border: 1px solid #aaf
         opacity: 1
       
-      li:first-child
+      li.selected
+        background-color: #fff
+        border: 1px solid #aaf
+        opacity: 1
         display: block
 
       .from
@@ -162,13 +167,14 @@ body
   background-repeat: no-repeat
   
 .footer
+  position: relative
+  @include background-image(linear-gradient(#fffb95, #101dbf 5px))
+  z-index: -1
   min-height: 100px
   text-align: center
-  @include background-image(linear-gradient(#fffb95, #101dbf 5px))
   background-repeat: no-repeat
   padding: 80px 0 0
   color: #008
-  position: relative
   
   p
     background: #fff
@@ -178,13 +184,14 @@ body
   @include opacity(0.25)
       
 /* Duck rules
-
+.duck-holder
+  position: relative
 .duck
   font-size: 12px /* SET EM DEFAULT */
   width: 32.125em
   height: 25em
   position: absolute
-  top: -140px
+  top: -120px
   left: 40px
   /* @include rotateY(180deg)
   
